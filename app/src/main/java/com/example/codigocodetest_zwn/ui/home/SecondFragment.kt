@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.codigocodetest_zwn.databinding.FragmentSecondBinding
+import com.example.codigocodetest_zwn.utilities.popBackStack
 
 class SecondFragment : Fragment() {
     private lateinit var binding: FragmentSecondBinding
@@ -20,6 +21,11 @@ class SecondFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        with(binding) {
+            ivBack.setOnClickListener {
+                it.popBackStack()
+            }
+        }
         return binding.root
     }
 }
