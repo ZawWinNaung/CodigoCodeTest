@@ -49,12 +49,15 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="@dimen/regular"
-            android:clipToPadding="true"
+            android:background="@color/white"
+            android:clipToPadding="false"
             android:paddingStart="@dimen/regular"
+            android:paddingTop="@dimen/medium"
             android:paddingEnd="@dimen/regular"
             android:paddingBottom="@dimen/regular"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_title_upcoming" />
+            app:layout_constraintTop_toBottomOf="@id/tv_title_upcoming"
+            tools:listitem="@layout/layout_upcoming_movie_item" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

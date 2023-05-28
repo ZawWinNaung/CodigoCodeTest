@@ -18,11 +18,12 @@ import dagger.hilt.android.AndroidEntryPoint
 class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
-    val viewModel: HomeFragmentViewModel by lazy {
+    private val viewModel: HomeFragmentViewModel by lazy {
         ViewModelProvider(this)[HomeFragmentViewModel::class.java]
     }
 
     private lateinit var popularMovieListAdapter: PopularMovieListAdapter
+    private lateinit var upcomingMovieListAdapter: UpcomingMovieListAdapter
 
     private fun initViewBinding() {
         binding = FragmentHomeBinding.inflate(layoutInflater)
@@ -40,6 +41,13 @@ class HomeFragment : Fragment() {
             Log.d("api call ----->", response.results[0].toString())
             popularMovieListAdapter.submitData(response.results)
         }
+        viewModel.upcomingMovieResponse.observe(this) { response ->
+            if (response == null) {
+                Toast.makeText(requireContext(), "Fail network call", Toast.LENGTH_LONG).show()
+                return@observe
+            }
+            upcomingMovieListAdapter.submitData(response.results)
+        }
     }
 
     override fun onCreateView(
@@ -47,14 +55,20 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         popularMovieListAdapter = PopularMovieListAdapter()
+        upcomingMovieListAdapter = UpcomingMovieListAdapter()
         binding.apply {
             rvPopular.apply {
                 adapter = popularMovieListAdapter
                 layoutManager =
                     LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
             }
+            rvUpcoming.apply {
+                adapter = upcomingMovieListAdapter
+                layoutManager = LinearLayoutManager(requireContext())
+            }
         }
         viewModel.getPopularMovies()
+        viewModel.getUpcomingMovies()
         return binding.root
     }
 

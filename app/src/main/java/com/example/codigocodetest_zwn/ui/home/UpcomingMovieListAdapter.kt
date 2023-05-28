@@ -4,16 +4,16 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.codigocodetest_zwn.databinding.LayoutPopularMovieItemBinding
+import com.example.codigocodetest_zwn.databinding.LayoutUpcomingMovieItemBinding
 import com.example.codigocodetest_zwn.model.MovieModel
 import com.example.codigocodetest_zwn.utilities.setGlide
 
-class PopularMovieListAdapter : RecyclerView.Adapter<PopularMovieListAdapter.ViewHolder>() {
+class UpcomingMovieListAdapter : RecyclerView.Adapter<UpcomingMovieListAdapter.ViewHolder>() {
     private var movieList: List<MovieModel> = emptyList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
-            LayoutPopularMovieItemBinding.inflate(
+            LayoutUpcomingMovieItemBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
@@ -33,13 +33,13 @@ class PopularMovieListAdapter : RecyclerView.Adapter<PopularMovieListAdapter.Vie
         holder.bindData(movieList[position])
     }
 
-    class ViewHolder(private val binding: LayoutPopularMovieItemBinding) :
+    class ViewHolder(private val binding: LayoutUpcomingMovieItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bindData(data: MovieModel) {
             binding.apply {
                 ivPoster.setGlide(data.poster_path)
-                tvTitle.text = data.original_title
-                tvTitle.isSelected = true
+                tvMovieName.text = data.original_title
+                tvOverview.text = data.overview
             }
         }
     }
