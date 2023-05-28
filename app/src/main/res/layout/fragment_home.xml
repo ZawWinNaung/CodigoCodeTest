@@ -26,6 +26,7 @@
             android:layout_height="0dp"
             android:layout_marginTop="@dimen/regular"
             android:background="@color/white"
+            android:clipToPadding="false"
             android:paddingStart="@dimen/regular"
             android:paddingEnd="@dimen/regular"
             app:layout_constraintTop_toBottomOf="@+id/tv_title_popular"

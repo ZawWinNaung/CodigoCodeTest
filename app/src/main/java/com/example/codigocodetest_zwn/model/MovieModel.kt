@@ -1,5 +1,7 @@
 package com.example.codigocodetest_zwn.model
 
+import java.io.Serializable
+
 data class MovieModel(
     val adult: Boolean,
     val backdrop_path: String,
@@ -15,4 +17,4 @@ data class MovieModel(
     val video: Boolean,
     val vote_average: Double,
     val vote_count: Int
-)
+) : Serializable
