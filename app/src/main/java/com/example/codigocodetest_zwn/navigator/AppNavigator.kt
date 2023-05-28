@@ -3,6 +3,7 @@ package com.example.codigocodetest_zwn.navigator
 import android.os.Bundle
 
 enum class Screens {
+    HOME,
     MOVIE_DETAIL
 }
 

@@ -5,4 +5,8 @@
     <string name="upcoming_movies">Upcoming Movies</string>
     <string name="release_date">Release Date |</string>
     <string name="movie_description">Movie description</string>
+    <string name="login">Login</string>
+    <string name="force_engLan"><![CDATA[ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789."]]></string>
+    <string name="user_name">User Name</string>
+    <string name="password">Password</string>
 </resources>
