@@ -5,28 +5,67 @@
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/small"
+        android:layout_marginTop="@dimen/medium"
+        android:layout_marginEnd="@dimen/small"
         android:background="@color/background">
 
-        <ImageView
-            android:id="@+id/iv_poster"
-            android:layout_width="@dimen/image_width_large"
-            android:layout_height="@dimen/image_height_large"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="20dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/iv_poster"
+                android:layout_width="@dimen/image_width_large"
+                android:layout_height="@dimen/image_height_large" />
+        </androidx.cardview.widget.CardView>
+
 
         <TextView
             android:id="@+id/tv_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:maxLines="1"
             android:paddingLeft="@dimen/small"
             android:paddingRight="@dimen/small"
+            android:scrollHorizontally="true"
             android:textAlignment="viewStart"
-            android:textColor="@color/black"
+            android:textColor="@color/primary"
             android:textSize="@dimen/medium_text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/iv_poster"
+            app:layout_constraintTop_toBottomOf="@id/cv_image"
             tools:text="Frozen 2" />
+
+        <ImageView
+            android:id="@+id/iv_favorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/regular"
+            android:layout_marginBottom="@dimen/regular"
+            android:src="@drawable/ic_favorite"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_title" />
+
+        <TextView
+            android:id="@+id/tv_popularity"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/small"
+            android:paddingRight="@dimen/small"
+            android:textColor="@color/primary"
+            app:layout_constraintBottom_toBottomOf="@id/iv_favorite"
+            app:layout_constraintStart_toEndOf="@id/iv_favorite"
+            app:layout_constraintTop_toTopOf="@id/iv_favorite"
+            tools:text="90%" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

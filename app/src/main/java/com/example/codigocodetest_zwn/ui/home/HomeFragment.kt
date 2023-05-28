@@ -8,10 +8,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.codigocodetest_zwn.R
 import com.example.codigocodetest_zwn.databinding.FragmentHomeBinding
 import com.example.codigocodetest_zwn.navigator.Screens
 import com.example.codigocodetest_zwn.utilities.provideNavigator
+import dagger.hilt.android.AndroidEntryPoint
 
 class HomeFragment : Fragment() {
 
@@ -20,8 +22,11 @@ class HomeFragment : Fragment() {
         ViewModelProvider(this)[HomeFragmentViewModel::class.java]
     }
 
+    private lateinit var popularMovieListAdapter: PopularMovieListAdapter
+
     private fun initViewBinding() {
         binding = FragmentHomeBinding.inflate(layoutInflater)
+        binding.lifecycleOwner = this
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,6 +38,7 @@ class HomeFragment : Fragment() {
                 return@observe
             }
             Log.d("api call ----->", response.results[0].toString())
+            popularMovieListAdapter.submitData(response.results)
         }
     }
 
@@ -40,16 +46,17 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        with(binding) {
-            btnNavigate.setOnClickListener {
-                it.provideNavigator().navigateTo(Screens.SECOND_SCREEN)
+        popularMovieListAdapter = PopularMovieListAdapter()
+        binding.apply {
+            rvPopular.apply {
+                adapter = popularMovieListAdapter
+                layoutManager =
+                    LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
             }
         }
         viewModel.getPopularMovies()
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-    }
+
 }
