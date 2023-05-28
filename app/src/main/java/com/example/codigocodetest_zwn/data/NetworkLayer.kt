@@ -9,13 +9,13 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.create
 
 object NetworkLayer {
-    val moshi = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
-    val retrofit: Retrofit = Retrofit.Builder()
+    private val moshi: Moshi = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
+    private val retrofit: Retrofit = Retrofit.Builder()
         .baseUrl(BASE_URL)
         .addConverterFactory(MoshiConverterFactory.create(moshi))
         .build()
 
-    val retrofitService: RetrofitService by lazy {
+    private val retrofitService: RetrofitService by lazy {
         retrofit.create(RetrofitService::class.java)
     }
 

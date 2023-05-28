@@ -5,21 +5,59 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/background"
         tools:context=".ui.home.HomeFragment">
 
-        <Button
-            android:id="@+id/btn_navigate"
+        <TextView
+            android:id="@+id/tv_title_popular"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/button_background"
-            android:paddingStart="@dimen/regular"
-            android:paddingEnd="@dimen/regular"
-            android:text="Second Screen"
-            android:textColor="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_margin="@dimen/medium"
+            android:text="@string/popular"
+            android:textColor="@color/primary"
+            android:textSize="@dimen/title_text"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_popular"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/regular"
+            android:background="@color/white"
+            android:paddingStart="@dimen/regular"
+            android:paddingEnd="@dimen/regular"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title_popular"
+            tools:itemCount="1"
+            tools:listitem="@layout/layout_popular_movie_item" />
+
+        <TextView
+            android:id="@+id/tv_title_upcoming"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/medium"
+            android:text="@string/upcoming_movies"
+            android:textColor="@color/primary"
+            android:textSize="@dimen/title_text"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rv_popular" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_upcoming"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/regular"
+            android:background="@color/white"
+            android:clipToPadding="false"
+            android:paddingStart="@dimen/regular"
+            android:paddingTop="@dimen/medium"
+            android:paddingEnd="@dimen/regular"
+            android:paddingBottom="@dimen/regular"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_title_upcoming"
+            tools:listitem="@layout/layout_upcoming_movie_item" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

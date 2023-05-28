@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:background="@color/background"
+        android:paddingStart="@dimen/regular"
+        android:paddingEnd="@dimen/regular">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/iv_poster"
+                android:layout_width="@dimen/image_width_large"
+                android:layout_height="@dimen/image_height_large" />
+        </androidx.cardview.widget.CardView>
+
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:paddingLeft="@dimen/small"
+
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:textAlignment="viewStart"
+            android:textColor="@color/primary"
+            android:textSize="@dimen/medium_text"
+            app:layout_constraintBottom_toBottomOf="@id/cb_favorite"
+            app:layout_constraintEnd_toStartOf="@id/cb_favorite"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/cb_favorite"
+            tools:text="Frozen 2" />
+
+        <CheckBox
+            android:id="@+id/cb_favorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/regular"
+            android:layout_marginTop="@dimen/regular"
+            android:layout_marginBottom="@dimen/regular"
+            android:button="@drawable/selector_favorite_item"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cv_image" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
