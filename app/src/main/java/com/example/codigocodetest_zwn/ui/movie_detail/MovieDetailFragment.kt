@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.codigocodetest_zwn.databinding.FragmentMovieDetailBinding
 import com.example.codigocodetest_zwn.model.MovieModel
+import com.example.codigocodetest_zwn.utilities.popBackStack
 import com.example.codigocodetest_zwn.utilities.setGlide
 
 class MovieDetailFragment : Fragment() {
@@ -36,6 +37,10 @@ class MovieDetailFragment : Fragment() {
                 tvReleaseDate.text = movie.release_date
                 tvMovieDesc.text = movie.overview
             }
+        }
+
+        binding.ivBack.setOnClickListener {
+            it.popBackStack()
         }
 
         return binding.root

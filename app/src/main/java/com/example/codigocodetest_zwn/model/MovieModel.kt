@@ -1,12 +1,15 @@
 package com.example.codigocodetest_zwn.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import com.example.codigocodetest_zwn.utilities.Constants.Companion.FAVORITE_MOVIES
 import java.io.Serializable
 
+@Entity(tableName = FAVORITE_MOVIES)
 data class MovieModel(
     val adult: Boolean,
     val backdrop_path: String,
-    val genre_ids: List<Int>,
-    val id: Int,
+    @PrimaryKey(autoGenerate = false) val id: Int,
     val original_language: String,
     val original_title: String,
     val overview: String,
