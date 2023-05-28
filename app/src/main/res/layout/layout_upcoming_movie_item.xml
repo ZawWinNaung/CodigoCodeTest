@@ -44,6 +44,7 @@
             android:layout_height="0dp"
             android:layout_margin="@dimen/regular"
             android:ellipsize="end"
+            android:maxLines="3"
             android:textSize="@dimen/medium_text"
             app:layout_constraintBottom_toTopOf="@+id/cb_favorite"
             app:layout_constraintEnd_toEndOf="parent"
