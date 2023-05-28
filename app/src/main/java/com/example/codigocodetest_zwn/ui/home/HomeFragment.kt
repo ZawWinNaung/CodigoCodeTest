@@ -32,7 +32,7 @@ class HomeFragment : Fragment() {
                 Toast.makeText(requireContext(), "Fail network call", Toast.LENGTH_LONG).show()
                 return@observe
             }
-            Log.d("api call ----->", response.toString())
+            Log.d("api call ----->", response.results[0].toString())
         }
     }
 
