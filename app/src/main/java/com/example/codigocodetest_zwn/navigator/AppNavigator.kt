@@ -3,7 +3,7 @@ package com.example.codigocodetest_zwn.navigator
 import android.os.Bundle
 
 enum class Screens {
-    SECOND_SCREEN
+    MOVIE_DETAIL
 }
 
 interface AppNavigator {

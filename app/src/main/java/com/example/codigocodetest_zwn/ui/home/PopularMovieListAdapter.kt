@@ -1,11 +1,14 @@
 package com.example.codigocodetest_zwn.ui.home
 
 import android.annotation.SuppressLint
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.codigocodetest_zwn.databinding.LayoutPopularMovieItemBinding
 import com.example.codigocodetest_zwn.model.MovieModel
+import com.example.codigocodetest_zwn.navigator.Screens
+import com.example.codigocodetest_zwn.utilities.provideNavigator
 import com.example.codigocodetest_zwn.utilities.setGlide
 
 class PopularMovieListAdapter : RecyclerView.Adapter<PopularMovieListAdapter.ViewHolder>() {
@@ -31,6 +34,11 @@ class PopularMovieListAdapter : RecyclerView.Adapter<PopularMovieListAdapter.Vie
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bindData(movieList[position])
+        holder.itemView.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putSerializable("movie", movieList[position])
+            it.provideNavigator().navigateTo(Screens.MOVIE_DETAIL, bundle)
+        }
     }
 
     class ViewHolder(private val binding: LayoutPopularMovieItemBinding) :
