@@ -1,6 +1,7 @@
 package com.example.codigocodetest_zwn.database
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
@@ -21,5 +22,5 @@ interface MovieDao {
 //    fun delete(movieId: Int)
 
     @Query("select * from $FAVORITE_MOVIES")
-    fun getAllFavoriteMovies(): Flow<MutableList<MovieModel>>
+    fun getAllFavoriteMovies(): Flow<MutableLiveData<List<MovieModel>>>
 }
