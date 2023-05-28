@@ -13,6 +13,7 @@ import com.example.codigocodetest_zwn.R
 import com.example.codigocodetest_zwn.databinding.FragmentHomeBinding
 import com.example.codigocodetest_zwn.navigator.Screens
 import com.example.codigocodetest_zwn.utilities.provideNavigator
+import dagger.hilt.android.AndroidEntryPoint
 
 class HomeFragment : Fragment() {
 
