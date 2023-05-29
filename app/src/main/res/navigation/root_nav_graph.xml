@@ -31,7 +31,9 @@
         android:id="@+id/movieDetailFragment"
         android:name="com.example.codigocodetest_zwn.ui.movie_detail.MovieDetailFragment"
         android:label="MovieDetailFragment"
-        tools:layout="@layout/fragment_movie_detail" />
+        tools:layout="@layout/fragment_movie_detail">
+        <deepLink app:uri="https://testing.com/movies/2000" />
+    </fragment>
 
 
 </navigation>

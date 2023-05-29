@@ -29,14 +29,14 @@ class MovieDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         arguments?.let {
-            val movie = it.getSerializable("movie") as MovieModel
-            binding.apply {
-                ivPoster.clipToOutline = true
-                ivPoster.setGlide(movie.poster_path)
-                tvMovieName.text = movie.original_title
-                tvReleaseDate.text = movie.release_date
-                tvMovieDesc.text = movie.overview
-            }
+//            val movie = it.getSerializable("movie") as MovieModel
+//            binding.apply {
+//                ivPoster.clipToOutline = true
+//                ivPoster.setGlide(movie.poster_path)
+//                tvMovieName.text = movie.original_title
+//                tvReleaseDate.text = movie.release_date
+//                tvMovieDesc.text = movie.overview
+//            }
         }
 
         binding.ivBack.setOnClickListener {
