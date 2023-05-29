@@ -3,6 +3,7 @@ package com.example.codigocodetest_zwn.data.api
 import com.example.codigocodetest_zwn.model.PopularMovieResponse
 import com.example.codigocodetest_zwn.model.UpcomingMovieResponse
 import com.example.codigocodetest_zwn.utilities.Constants.Companion.BASE_URL
+import dagger.Module
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

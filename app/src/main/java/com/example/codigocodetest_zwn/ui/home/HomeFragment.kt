@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.codigocodetest_zwn.R
@@ -15,12 +16,11 @@ import com.example.codigocodetest_zwn.navigator.Screens
 import com.example.codigocodetest_zwn.utilities.provideNavigator
 import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
-    private val viewModel: HomeFragmentViewModel by lazy {
-        ViewModelProvider(this)[HomeFragmentViewModel::class.java]
-    }
+    private val viewModel: HomeFragmentViewModel by viewModels()
 
     private lateinit var popularMovieListAdapter: PopularMovieListAdapter
     private lateinit var upcomingMovieListAdapter: UpcomingMovieListAdapter
