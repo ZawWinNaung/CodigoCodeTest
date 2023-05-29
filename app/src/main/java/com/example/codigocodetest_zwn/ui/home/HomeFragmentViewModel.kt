@@ -5,15 +5,17 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.codigocodetest_zwn.data.SharedRepository
-import com.example.codigocodetest_zwn.database.FavoriteMovieRepository
 import com.example.codigocodetest_zwn.model.PopularMovieResponse
 import com.example.codigocodetest_zwn.model.UpcomingMovieResponse
 import com.example.codigocodetest_zwn.utilities.Constants.Companion.API_KEY
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class HomeFragmentViewModel() :
+@HiltViewModel
+class HomeFragmentViewModel @Inject constructor(private val repository: SharedRepository) :
     ViewModel() {
-    private val repository = SharedRepository()
+
     private val _popularMovies = MutableLiveData<PopularMovieResponse?>()
 
     val popularMovieResponse: LiveData<PopularMovieResponse?>
